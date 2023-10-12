@@ -1,18 +1,19 @@
 //import//
-import Downshift from "downshift";
+import { Autocomplete } from "@react-google-maps/api";
 
-export const Search = () => {
-  const items = [
-    { value: "apple" },
-    { value: "pear" },
-    { value: "orange" },
-    { value: "grape" },
-    { value: "banana" },
-  ];
+type SearchProps = {
+  isLoaded: any
+}
 
+export const Search: React.FC<SearchProps> = ({ isLoaded }) => {
+  
+  if (!isLoaded) return <div>Loading...</div>
+  
   return (
     <div className="">
-      <h1>search</h1>
+      <Autocomplete>
+        <input type="text" placeholder="Search..." className="m-4 border" />
+      </Autocomplete>
     </div>
   );
 };

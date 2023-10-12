@@ -9,11 +9,11 @@ const containerStyle = {
 
 const center = { lat: 39.09, lng: -94.57 };
 
-export const Map: React.FC = () => {
-  const { isLoaded } = useLoadScript({
-    id: "google-map-script",
-    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
-  });
+type MapProps = {
+  isLoaded: any
+}
+
+export const Map: React.FC<MapProps> = ({ isLoaded }) => {
 
   const [map, setMap] = useState(null);
 
